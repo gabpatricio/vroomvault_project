@@ -45,6 +45,8 @@ CREATE TABLE rentals (
     rental_id INT NOT NULL AUTO_INCREMENT UNIQUE,
     rental_date DATE NOT NULL,
     customer_id INT NOT NULL,
+    inventory_id INT NOT NULL,
     PRIMARY KEY (rental_id),
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (inventory_id) REFERENCES inventory(inventory_id)
 );
