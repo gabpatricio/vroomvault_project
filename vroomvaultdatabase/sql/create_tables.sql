@@ -2,8 +2,6 @@ CREATE DATABASE vroomvault
 
 USE vroomvault;
 
-USE vroomvault;
-
 CREATE TABLE countries (
     country_id INT NOT NULL AUTO_INCREMENT UNIQUE,
     country VARCHAR(50) NOT NULL,
@@ -13,7 +11,7 @@ CREATE TABLE countries (
 CREATE TABLE brands (
     brand_id INT NOT NULL AUTO_INCREMENT UNIQUE,
     brand VARCHAR(100) NOT NULL,
-    country_id INT NOT NULL,  -- Assuming country_id is an INT
+    country_id INT NOT NULL,
     PRIMARY KEY (brand_id),
     FOREIGN KEY (country_id) REFERENCES countries(country_id)
 );
