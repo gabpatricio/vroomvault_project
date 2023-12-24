@@ -16,15 +16,21 @@ CREATE TABLE brands (
     FOREIGN KEY (country_id) REFERENCES countries(country_id)
 );
 
+CREATE TABLE transmission(
+    transmission_id INT NOT NULL AUTO_INCREMENT,
+    transmission_type VARCHAR(9) NOT NULL,
+    PRIMARY KEY (transmission_id),
+);
+
 CREATE TABLE inventory (
     inventory_id INT NOT NULL AUTO_INCREMENT UNIQUE,
     model VARCHAR(255) NOT NULL,
-    transmission VARCHAR(255) NOT NULL,
-    automotive_engine VARCHAR(255) NOT NULL,
+    transmission_id INT NOT NULL,
     fuel_type VARCHAR(255) NOT NULL,
     brand_id INT NOT NULL,
     PRIMARY KEY (inventory_id),
-    FOREIGN KEY (brand_id) REFERENCES brands(brand_id)
+    FOREIGN KEY (brand_id) REFERENCES brands(brand_id),
+    FOREIGN KEY (transmission_id) REFERENCES transmission(transmission_id)
 );
 
 CREATE TABLE customers (
